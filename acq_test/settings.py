@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'wq*dam564v$v2m4g=x_tqiib-9@1+d8#@mz-u^h5n8%jqn))q('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'acq_test.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "acq_db",
+        "NAME": "",
         "USER": "",
         "PASSWORD": "",
         "HOST": "localhost",
@@ -127,3 +127,10 @@ REST_FRAMEWORK = {
     ],
     'PAGE_SIZE': 10
 }
+
+
+# Import local_settings
+try:
+    from local_settings import *  # noqa
+except ImportError:
+    pass
