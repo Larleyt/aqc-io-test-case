@@ -21,8 +21,7 @@ class CampaignViewSet(viewsets.ModelViewSet):
     serializer_class = CampaignSerializer
 
 
-
-# Example of generic CBV version (without wiring up to certain URLs)
+# Example of generics CBV version (not wired up to certain URLs)
 class ChannelList(generics.ListCreateAPIView):
     queryset = Channel.objects.all()
     serializer_class = ChannelSerializer

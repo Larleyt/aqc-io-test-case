@@ -123,14 +123,15 @@ STATIC_URL = '/static/'
 # Django REST Framework
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.permissions.IsAuthenticated',
     ],
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
 
 
 # Import local_settings
 try:
-    from local_settings import *  # noqa
+    from acq_test.local_settings import *  # noqa
 except ImportError:
     pass

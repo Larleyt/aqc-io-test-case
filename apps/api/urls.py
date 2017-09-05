@@ -6,8 +6,8 @@ from apps.api import views
 
 
 router = routers.DefaultRouter()
-router.register(r'campaigns', views.CampaignViewSet)
 router.register(r'channels', views.ChannelViewSet)
+router.register(r'campaigns', views.CampaignViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),

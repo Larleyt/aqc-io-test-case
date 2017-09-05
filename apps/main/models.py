@@ -11,7 +11,7 @@ class Channel(models.Model):
     name = models.CharField(
         max_length=255, verbose_name="Название", null=True, blank=True)
     slug = models.CharField(
-        max_length=255, verbose_name="URL")
+        max_length=255, verbose_name="URL", unique=True)
     bid_types = ChoiceArrayField(
         models.CharField(
             choices=constants.BID_TYPE_CHOICES,
@@ -22,9 +22,6 @@ class Channel(models.Model):
     )
 
     objects = models.Manager()
-
-    def get_absolute_url(self):
-        return reverse('channel', kwargs=dict(pk=self.pk))
 
     def __str__(self):
         return self.name
@@ -42,14 +39,6 @@ class Campaign(models.Model):
     )
 
     objects = models.Manager()
-
-    def clean(self, *args, **kwargs):
-        if self.bid_type not in self.channel.bid_types:
-            raise ValidationError(
-                "Bid_type of Campaign should also be supported by Channel")
-
-    def get_absolute_url(self):
-        return reverse('campaign', kwargs=dict(pk=self.pk))
 
     def __str__(self):
         return self.name

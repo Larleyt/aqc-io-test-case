@@ -1,6 +1,5 @@
 # coding: utf-8
 
-# NB: Constants for models
 CPC = 'cpc'
 CPM = 'cpm'
 CPA = 'cpa'
