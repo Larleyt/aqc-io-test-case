@@ -1,4 +1,3 @@
-# coding: utf-8
 from rest_framework import viewsets, generics
 from apps.main.models import Campaign, Channel
 from .serializers import CampaignSerializer, ChannelSerializer

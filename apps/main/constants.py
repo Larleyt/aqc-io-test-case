@@ -1,5 +1,3 @@
-# coding: utf-8
-
 CPC = 'cpc'
 CPM = 'cpm'
 CPA = 'cpa'
